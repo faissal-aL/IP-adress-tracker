@@ -10,16 +10,29 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
+<header>
   <h1>IP Address Tracker</h1>
+  <input type="text" placeholder="Search for any IP address or domain">
+  <button><img src="images\icon-arrow.svg" alt="arrow icon"></button>
+</header>
+<div class="container">
+  <div>
+  <h2>IP Address</h2>
+  </div>
+  <div>
+  <h2>Location</h2>
+</div>
+<div>
+  <h2>Timezone</h2>
+  UTC <!-- add offset value dynamically using the API -->
+</div>
+    <div>
+  <h2>ISP</h2>
+</div>
+</div>
+<div class="map">
 
-  <h2>Search for any IP address or domain</h2> 
-
-  IP Address
-  Location
-  Timezone
-    UTC <!-- add offset value dynamically using the API -->
-  ISP
+</div>
   <script src="script.js"></script>
 </body>
 </html>
