@@ -6,10 +6,15 @@
     --VeryDarkGray: hsl(0, 0%, 17%);
     --DarkGray: hsl(0, 0%, 59%);
 }
-
+html{
+    height: 100%;
+}
 body{
     font-family: var(--font1);
     margin: 0px;
+    display: flex;
+    flex-flow: column;
+    height: 100%;
 }
 header{
     background: url(images/pattern-bg.png) no-repeat;
@@ -33,6 +38,9 @@ input{
     border-radius: 10px;
     padding-left: 1.5em;
 }
+input:focus{
+    outline: none;
+}
 button{
     height: 3em;
     background-color: var(--VeryDarkGray);
@@ -51,6 +59,9 @@ img{
 }
 
 .container{
+    position: absolute;
+    top: 250px;
+    left: 15%;
     display: flex;
     justify-content: space-around;
     width: 70%;
@@ -60,14 +71,23 @@ img{
     background-color: white;
     border: 1px solid black;
     border-radius: 15px;
-    min-height: 150px;
+
     padding: 1em;
     box-sizing: border-box;
 }
-
+.detail{
+    width: 25%;
+}
 h2{
     text-transform: uppercase;
     letter-spacing: 2px;
     font-size: 1rem;
     color: var(--DarkGray);
 }
+#premap{
+    height: 100%;
+}
+#map { 
+    height: 100%;
+    z-index: -2;
+ }
