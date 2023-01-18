@@ -11,14 +11,7 @@ const searchButton = document.getElementById("search-button");
 const mapContainer = document.getElementById("premap");
 
 function buttonFunction(){
-    console.log('button is clicked and value is',customIp.value);
     let parameterip = '&ipAddress='+customIp.value;
-    console.log(parameterip);
-    console.log('map exist ?',map != null);
-    map = map.remove();
-    const mappa = document.createElement("div");
-    mappa.id = "map";
-    mapContainer.append(mappa);
     getlocation(parameterip);
 };
 
@@ -39,9 +32,10 @@ const myLocation = () => {
     locaterApi.then((e) =>{
         writeCoordinates(e);
         myPosition(e);       
-        console.log('object is ',e);
+        //console.log('object is ',e);
     });
 };
+
 myLocation();
 };
 
@@ -57,13 +51,15 @@ function writeCoordinates(e){
 }
 
 // function to draw the map and the cercle of position on the map
+let map = L.map('map',{zoomControl: false});
+
 function myPosition(e){
-    
+
     let lattitude,longitude;
     lattitude = e.location["lat"];
     longitude = e.location["lng"];
 
-    let map =new L.map('map').setView([lattitude,longitude], 10);
+    map.setView([lattitude,longitude], 10);
 
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
@@ -76,5 +72,6 @@ function myPosition(e){
         fillOpacity: 0.5,
         radius: 500
     }).addTo(map); */
+
     L.marker([lattitude, longitude]).addTo(map);
 }
